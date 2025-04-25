@@ -1,0 +1,22 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("checkboxGroup") {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &--s {
+    min-height: 24px;
+  }
+  &--m {
+    min-height: 32px;
+  }
+  &--l {
+    min-height: 36px;
+  }
+  &--vertical {
+    .t-checkbox {
+      display: flex;
+    }
+  }
+}

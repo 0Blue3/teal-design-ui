@@ -1,0 +1,15 @@
+@use "mixin/mixins.scss" as *;
+
+@include b(icon) {
+  display: inline-flex;
+  // em
+  height: 1em;
+  width: 1em;
+  // 垂直居中
+  vertical-align: middle;
+  justify-content: center;
+
+  /* svg {
+    transition: all 0.3s;
+  } */
+}

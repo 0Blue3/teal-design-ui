@@ -1,0 +1,118 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("slider") {
+  --teal-slider-bar-color: var(--teal-color-primary);
+  --teal-slider-cursor: pointer;
+}
+@include b("slider") {
+  -webkit-user-select: none;
+  padding: 10px 6px;
+  @include when("disabled") {
+    --teal-slider-bar-color: var(--teal-color-gray-4);
+    --teal-slider-cursor: not-allowed;
+  }
+
+  @include e("runway") {
+    position: relative;
+    background-color: var(--teal-bg-color-3);
+    cursor: var(--teal-slider-cursor);
+    border-radius: 2px;
+  }
+  @include e("bar") {
+    position: absolute;
+    background-color: var(--teal-slider-bar-color);
+
+    @include m("direction") {
+      display: inline;
+    }
+
+    &-button-start,
+    &-button-end {
+      position: absolute !important;
+      z-index: 1;
+      width: 12px !important;
+      height: 12px;
+      border: 2px solid var(--teal-slider-bar-color);
+      border-radius: 50%;
+      background: var(--teal-bg-color-1);
+      cursor: pointer;
+      transition: transform 0.3s;
+      top: -5px;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    &-button-start {
+      left: -5px;
+    }
+    &-button-end {
+      right: -5px;
+    }
+    &-tooltipSpan {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+@include b("sliderMarks") {
+  --teal-slider-mark-border-color: var(--teal-color-primary);
+  --teal-slider-cursor: pointer;
+}
+@include b("sliderMarks") {
+  position: relative;
+
+  @include when("disabled") {
+    --teal-slider-mark-border-color: var(--teal-color-gray-5);
+    --teal-slider-cursor: not-allowed;
+  }
+  @include e("item") {
+    position: absolute;
+    top: -5px;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-pointer {
+      width: 8px;
+      height: 8px;
+      background-color: var(--teal-bg-color-1);
+      cursor: var(--teal-slider-cursor);
+      border: 2px solid var(--teal-bg-color-4);
+      border-radius: 50%;
+    }
+
+    &-box {
+      cursor: var(--teal-slider-cursor);
+    }
+
+    @include when("overed") {
+      .t-sliderMarks__item-pointer {
+        border: 2px solid var(--teal-slider-mark-border-color);
+      }
+    }
+
+    @include when("over") {
+      .t-sliderMarks__item-pointer {
+        border: 1.5px solid var(--teal-slider-mark-border-color);
+        transform: scale(1.5);
+        transition: all 0.2s;
+        &:hover {
+          transform: scale(1.7);
+        }
+      }
+    }
+  }
+  @include m("vertical") {
+    .t-sliderMarks__item {
+      flex-direction: row;
+      top: auto;
+      left: -3px;
+      transform: translate(0);
+      &-box {
+        margin-left: 10px;
+      }
+    }
+  }
+}

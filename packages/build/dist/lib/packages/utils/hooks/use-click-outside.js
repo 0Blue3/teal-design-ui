@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const i=require("vue"),u=(t,o)=>{const n=e=>{t.value&&e.target&&(t.value.contains(e.target)||o(e))};i.onMounted(()=>{document.addEventListener("click",n)}),i.onUnmounted(()=>{document.removeEventListener("click",n)})};exports.useClickOutside=u;

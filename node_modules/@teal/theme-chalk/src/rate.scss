@@ -1,0 +1,76 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("rate") {
+  --teal-rate-column-gap: 8px;
+  --teal-rate-size: 20px;
+}
+
+@include b("rate") {
+  display: inline-flex;
+  column-gap: var(--teal-rate-column-gap);
+
+  @include m("s") {
+    --teal-rate-column-gap: 6px;
+    --teal-rate-size: 15px;
+  }
+  @include m("l") {
+    --teal-rate-column-gap: 10px;
+    --teal-rate-size: 25px;
+  }
+
+  @include e("item") {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--teal-bg-color-3);
+    display: inline-flex;
+
+    .t-icon {
+      font-size: var(--teal-rate-size);
+      &.is-select {
+        color: var(--teal-color-warning);
+      }
+    }
+
+    & > &--half {
+      position: absolute;
+      z-index: 10;
+      overflow: hidden;
+      width: 50%;
+      justify-content: flex-start;
+      opacity: 0;
+
+      &.is-select {
+        opacity: 1;
+      }
+    }
+
+    &:not(.is-readonly, .is-disabled) {
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
+    }
+
+    &--animation {
+      animation-name: rateScale;
+      animation-duration: 0.34s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+}
+
+@keyframes rateScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

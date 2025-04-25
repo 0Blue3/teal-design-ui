@@ -1,0 +1,53 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -C play dev",
+    "doc:dev": "pnpm -C docs dev",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "build:kitty": "gulp -f packages/build/index.ts",
+    "publish:kitty": "gulp -f packages/build/publish/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.3",
+  "dependencies": {
+    "@teal/components": "workspace:^",
+    "@teal/theme-chalk": "workspace:^",
+    "@teal/utils": "workspace:^",
+    "@teal/build": "workspace:^",
+    "@vitepress-demo-preview/component": "^2.3.2",
+    "@vitepress-demo-preview/plugin": "^1.4.0",
+    "typescript": "^5.8.2",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@floating-ui/vue": "^1.1.6",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@types/gulp": "^4.0.17",
+    "@types/gulp-autoprefixer": "^0.0.37",
+    "@types/gulp-sass": "^5.0.4",
+    "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "@vue/eslint-config-typescript": "^14.5.0",
+    "async-validator": "^4.2.5",
+    "eslint-config-prettier": "^10.1.1",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-sass": "^6.0.1",
+    "lodash-es": "^4.17.21",
+    "sass": "^1.85.1",
+    "sucrase": "^3.35.0",
+    "unplugin-vue-define-options": "0.12.2",
+    "vite-plugin-dts": "^4.5.3",
+    "vitepress": "^1.6.3"
+  }
+}

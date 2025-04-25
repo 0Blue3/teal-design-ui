@@ -1,0 +1,57 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("scrollbar") {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+  &-wrap {
+    overflow: auto;
+    height: 100%;
+    &--defaultHide {
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &-bar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 4px;
+
+    &--vertical {
+      top: 0;
+      width: 5px;
+      > div {
+        width: 100%;
+      }
+    }
+
+    &--horizontal {
+      left: 0;
+      height: 5px;
+      > div {
+        height: 100%;
+      }
+    }
+
+    &__thumb {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-radius: inherit;
+      background-color: var(--teal-color-gray-1);
+      transition: background 0.3s;
+      cursor: pointer;
+
+      &:hover,
+      &:active {
+        background-color: var(--teal-color-gray-3);
+      }
+    }
+  }
+}

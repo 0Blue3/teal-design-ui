@@ -1,0 +1,42 @@
+@use "./config.scss" as *;
+@use "./mixin.scss" as *;
+
+@use "sass:math";
+@use "sass:color";
+
+// ---------- 混合出背景色 ----------
+$bg-dark-color-1: $gray;
+$bg-dark-color-2: color.scale($gray, $lightness: -96.8%);
+$bg-dark-color-3: color.scale($gray, $lightness: -93.6%);
+$bg-dark-color-4: color.scale($gray, $lightness: -91.2%);
+
+$bg-light-color-1: $white;
+$bg-light-color-2: color.scale($white, $lightness: -3.6%);
+$bg-light-color-3: color.scale($white, $lightness: -6.4%);
+$bg-light-color-4: color.scale($white, $lightness: -8.2%);
+
+// 默认主题
+:root {
+  @include createColor($colors);
+  // ----背景色----
+  --teal-bg-color-1: #{$bg-light-color-1};
+  --teal-bg-color-2: #{$bg-light-color-2};
+  --teal-bg-color-3: #{$bg-light-color-3};
+  --teal-bg-color-4: #{$bg-light-color-4};
+
+  --teal-bg-color-5: #{$bg-light-color-1};
+  --teal-bg-color-6: #{$bg-dark-color-1};
+}
+
+// 深色主题
+[data-theme="dark"] {
+  @include createColor($colors-dark);
+
+  --teal-bg-color-1: #{$bg-dark-color-1};
+  --teal-bg-color-2: #{$bg-dark-color-2};
+  --teal-bg-color-3: #{$bg-dark-color-3};
+  --teal-bg-color-4: #{$bg-dark-color-4};
+
+  --teal-bg-color-5: #{$bg-dark-color-2};
+  --teal-bg-color-6: #{$bg-dark-color-3};
+}

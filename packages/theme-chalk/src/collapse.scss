@@ -1,0 +1,116 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("collapse-group") {
+  --teal-collapse-header-padding: 12px 16px;
+  //   rgba(0, 0, 0, 0.02)
+  --teal-collapse-header-bg: transparent;
+  --teal-collapse-border-color: transparent;
+  --teal-collapse-content-padding: 16px 16px;
+  --teal-collapse-content-bg: #ffffff;
+  --teal-collapse-text-color: var(--teal-text-color-primary);
+  --teal-collapse-border-radius: var(--teal-border-radius-base);
+}
+
+@include b("collapse-group") {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--teal-collapse-text-color);
+  font-size: var(--teal-font-size-s);
+  line-height: var(--teal-line-height-s);
+  list-style: none;
+  background-color: var(--teal-collapse-header-bg);
+  border: 1px solid var(--teal-collapse-border-color);
+  border-radius: var(--teal-collapse-border-radius);
+
+  &.is-border .t-collapse:last-child {
+    border-bottom: none;
+  }
+
+  @include when("border") {
+    --teal-collapse-header-bg: rgba(0, 0, 0, 0.02);
+    --teal-collapse-border-color: var(--teal-border-color);
+  }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: height 0.3s;
+}
+
+@include b("collapse") {
+  border-bottom: 1px solid var(--teal-border-color);
+
+  @include e("header") {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: var(--teal-collapse-header-padding);
+    color: var(--teal-collapse-text-color);
+    line-height: var(--teal-line-height-s);
+    cursor: pointer;
+    transition: all 0.2s, visibility 0s;
+    border-radius: var(--teal-collapse-border-radius)
+      var(--teal-collapse-border-radius) 0 0;
+
+    &-left {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    &-ctl {
+      height: var(--teal-font-height);
+      display: flex;
+      align-items: center;
+      margin-right: var(--teal-margin-sm);
+    }
+  }
+
+  @include e("content") {
+    color: var(--teal-color-text);
+    background-color: var(--teal-collapse-content-bg);
+    border-top: 1px solid var(--teal-border-color);
+    border-radius: 0 0 var(--teal-collapse-border-radius)
+      var(--teal-collapse-border-radius);
+
+    &-box {
+      padding: var(--teal-collapse-content-padding);
+    }
+  }
+
+  @include when("active") {
+    & > .t-collapse__header .t-collapse__header-ctl > .t-icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  @include when("disabled") {
+    --teal-collapse-text-color: var(--teal-text-color-disabled);
+    .t-collapse__header {
+      cursor: not-allowed;
+      background-image: none;
+    }
+  }
+
+  @include m("s") {
+    line-height: var(--teal-line-height-ss);
+    --teal-collapse-header-padding: 8px 8px;
+    --teal-collapse-content-padding: 10px 10px;
+    font-size: var(--teal-font-size-ss);
+    --teal-collapse-border-radius: var(--teal-border-radius-small);
+  }
+  @include m("m") {
+    line-height: var(--teal-line-height-s);
+    font-size: var(--teal-font-size-s);
+    --teal-collapse-border-radius: var(--teal-border-radius-base);
+  }
+  @include m("l") {
+    line-height: var(--teal-line-height-m);
+    --teal-collapse-header-padding: 20px 20px;
+    --teal-collapse-content-padding: 24px 24px;
+    font-size: var(--teal-font-size-m);
+    --teal-collapse-border-radius: var(--teal-border-radius-large);
+  }
+}

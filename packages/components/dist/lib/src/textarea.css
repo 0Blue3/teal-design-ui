@@ -1,0 +1,134 @@
+.left-no-border-radius {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.right-no-border-radius {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.disabled {
+  display: inline-flex;
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+.disabled::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.readonly {
+  display: inline-flex;
+}
+.readonly::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.loading {
+  display: inline-flex;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.loading::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.t-textarea {
+  position: relative;
+  padding: var(--teal-space-size-s) var(--teal-space-size-m);
+  width: 100%;
+  font-size: var(--teal-font-size-s);
+  border: 1px solid transparent;
+  border-radius: var(--teal-border-radius-small);
+  color: var(--teal-text-color-regular);
+  border: 1px solid var(--teal-border-color);
+  transition: background-color 0.2s ease-in-out;
+}
+.t-textarea__content {
+  position: absolute;
+  padding: var(--teal-space-size-ss) var(--teal-space-size-m);
+  visibility: hidden;
+}
+.t-textarea:hover {
+  border: 1px solid var(--teal-color-primary);
+}
+.t-textarea:hover .t-textarea__button {
+  opacity: 1;
+}
+.t-textarea.is-focus {
+  border: 1px solid var(--teal-color-primary);
+}
+.t-textarea.is-disabled {
+  cursor: not-allowed;
+}
+.t-textarea.is-disabled:hover {
+  border: 1px solid var(--teal-border-color);
+}
+.t-textarea.is-disabled textarea {
+  cursor: not-allowed;
+}
+.t-textarea textarea {
+  width: 100%;
+  min-height: calc(var(--teal-space-size-l) * 2);
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  color: inherit;
+  background-color: transparent;
+  outline: none;
+  resize: vertical;
+  line-height: 20px;
+}
+.t-textarea textarea::placeholder {
+  font-size: var(--teal-font-size-s);
+}
+.t-textarea__inner--autoSize {
+  transition: all 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+}
+.t-textarea__button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-right: 8px;
+  width: 24px;
+  border: none;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: transparent;
+  opacity: 0;
+}
+.t-textarea__button:hover .t-icon {
+  background-color: var(--teal-bg-color-3);
+}
+.t-textarea__button .t-icon {
+  padding: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: var(--teal-text-color-secondary);
+  transition: all 0.2s;
+}
+.t-textarea__wordLimit {
+  position: absolute;
+  bottom: 6px;
+  left: 10px;
+  color: var(--teal-text-color-secondary);
+}

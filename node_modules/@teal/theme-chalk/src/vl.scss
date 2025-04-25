@@ -1,0 +1,8 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("vl") {
+  @include e("scroll-bar") {
+  }
+  @include e("scroll-list") {
+  }
+}

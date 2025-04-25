@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});require("vue");const e=require("../../utils/with-install.js"),t=require("./src/table.vue.js"),l=require("./src/column.js"),u=e.withInstall(t),r=e.withInstall(l);exports.TlTableColumn=r;exports.default=u;

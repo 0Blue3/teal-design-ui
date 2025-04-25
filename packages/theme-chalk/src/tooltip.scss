@@ -1,0 +1,71 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("tooltip") {
+  --teal-tooltip-theme-bg-color: var(--teal-bg-color-6);
+  --teal-tooltip-theme-border-color: var(--teal-bg-color-6);
+  --teal-tooltip-theme-font-color: #ffffff;
+  --teal-tooltip-theme-min-width: 2em;
+  --teal-tooltip-theme-min-height: 2em;
+  --teal-tooltip-theme-max-width: 250px;
+  --teal-tooltip-theme-max-height: fit-content;
+}
+
+@include b("tooltip") {
+  position: relative;
+  width: fit-content;
+  @include e("popper") {
+    position: absolute;
+    z-index: 1000;
+    width: max-content;
+    min-width: var(--teal-tooltip-theme-min-width);
+    min-height: var(--teal-tooltip-theme-min-height);
+    max-width: var(--teal-tooltip-theme-max-width);
+    max-height: var(--teal-tooltip-theme-max-height);
+    color: var(--teal-tooltip-theme-font-color);
+    background: var(--teal-tooltip-theme-bg-color);
+    border-radius: 4px;
+    border: 1px solid var(--tooltip-theme-bg-color);
+    padding: 8px 12px;
+    line-height: 1.4;
+    text-align: justify;
+    font-size: var(--teal-font-size-s);
+    word-break: break-all;
+    box-sizing: border-box;
+    z-index: 1;
+    box-shadow: 0px 0px 10px 3px var(--teal-border-color);
+
+    #arrow {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      box-sizing: border-box;
+      background: var(--teal-tooltip-theme-bg-color);
+      transform: rotate(45deg);
+    }
+
+    #arrow {
+      &[data-popper-placement^="top"] {
+        bottom: -4px;
+      }
+      &[data-popper-placement^="bottom"] {
+        top: -4px;
+      }
+      &[data-popper-placement^="left"] {
+        right: -4px;
+      }
+      &[data-popper-placement^="right"] {
+        left: -4px;
+      }
+    }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+}

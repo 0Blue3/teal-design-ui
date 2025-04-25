@@ -1,0 +1,35 @@
+.vitepress-demo-preview__element-plus__container {
+  overflow: visible;
+}
+
+.vitepress-demo-preview__element-plus__container div[class*="language-"] {
+  background-color: #f5f7fa;
+}
+
+.vp-doc a {
+  color: currentcolor;
+}
+
+.vitepress-demo-preview__element-plus__container img {
+  height: revert-layer;
+}
+
+.VPSidebarItem.level-1 .text {
+  font-weight: 400;
+  padding: 10px 0px;
+}
+
+.VPSidebar {
+  padding-left: 20px;
+}
+.VPDoc.has-aside > .container > .aside {
+  max-width: 130px;
+}
+.VPDoc.has-aside > .container > .content {
+  flex: 1;
+  max-width: none;
+}
+.VPDoc.has-aside .content-container {
+  max-width: none !important;
+  margin: inherit;
+}

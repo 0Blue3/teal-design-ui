@@ -1,0 +1,97 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("form") {
+  --teal-form-label-required-mark-color: #ff4d4f;
+  --teal-form-label-color: rgba(0, 0, 0, 0.88);
+  --teal-form-label-font-size: 14px;
+  --teal-form-label-height: 32px;
+  --teal-form-label-padding-right: 16px;
+  --teal-form-label-colon-margin-inline-start: 2px;
+  --teal-form-label-colon-margin-inline-end: 8px;
+  --teal-form-item-margin-bottom: 24px;
+  --teal-form-vertical-label-padding: 0 0 8px;
+  --teal-form-vertical-label-margin: 0px;
+  --teal-form-inline-item-margin-bottom: 0px;
+}
+@include b("form") {
+  display: flex;
+  flex-direction: column;
+
+  @include b("formItem") {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: var(--teal-form-item-margin-bottom);
+
+    &__label {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: var(--teal-form-label-padding-right);
+    }
+
+    &__label::before {
+      display: none;
+      margin-inline-end: var(--teal-margin-xxs);
+      color: var(--teal-form-label-required-mark-color);
+      font-size: var(--teal-font-size-m);
+      font-family: SimSun, sans-serif;
+      line-height: 1;
+      content: "*";
+    }
+
+    &__label.is-required &__label::before {
+      display: inline-block;
+    }
+
+    &__field {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    @include e("field") {
+      &__extra {
+        margin-left: 4px;
+        font-size: 12px;
+        color: var(--teal-color-danger);
+        line-height: 16px;
+      }
+    }
+
+    &--vertical {
+      flex-direction: column;
+      .t-formItem__label {
+        padding: var(--teal-form-vertical-label-padding);
+        margin: var(--teal-form-vertical-label-margin);
+        justify-content: flex-start;
+      }
+    }
+
+    &--inline {
+      flex-direction: row;
+      padding-right: 16px;
+      margin-right: 24px;
+      .t-formItem__label {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &--inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &--s {
+    --teal-form-label-padding-right: 10px;
+    --teal-form-item-margin-bottom: 15px;
+  }
+  &--l {
+    --teal-form-label-padding-right: 25px;
+    --teal-form-item-margin-bottom: 35px;
+  }
+}

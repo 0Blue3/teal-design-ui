@@ -1,0 +1,114 @@
+@use "./mixin/mixins.scss" as *;
+
+.img-preview-btn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 18px;
+  transition: background 0.2s;
+}
+
+@include b("image-preview") {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  @include e("mask") {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+  }
+
+  @include e("body") {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s;
+  }
+
+  @include e("img") {
+    display: inline-block;
+    max-width: 96%;
+    max-height: 96%;
+    vertical-align: middle;
+    cursor: grab;
+    --webkit-user-select: none;
+  }
+  @include e("close-btn") {
+    @extend .img-preview-btn;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  @include e("arrow-left") {
+    @extend .img-preview-btn;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    left: 20px;
+  }
+  @include e("arrow-right") {
+    @extend .img-preview-btn;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    right: 20px;
+  }
+
+  @include e("toolbar") {
+    position: absolute;
+    bottom: 46px;
+    left: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transform: translate(-50%);
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+  }
+
+  @include e("toolbar-btn") {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    color: rgb(55, 65, 81);
+    cursor: pointer;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 8px;
+    background: transparent;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f3f3f4;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+.left-no-border-radius {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.right-no-border-radius {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.disabled {
+  display: inline-flex;
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+.disabled::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.readonly {
+  display: inline-flex;
+}
+.readonly::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.loading {
+  display: inline-flex;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.loading::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.t-badge {
+  --teal-badge-bg-color: var(--teal-color-danger);
+}
+.t-badge .common, .t-badge .t-badge__count, .t-badge .t-badge__dot {
+  background-color: var(--teal-badge-bg-color);
+  color: var(--teal-bg-color-1);
+  box-shadow: var(--teal-bg-color-1) 0 0 0 0;
+}
+.t-badge .modal-enter-from {
+  scale: 0;
+  opacity: 0;
+}
+.t-badge .modal-enter-active {
+  transition: all 0.2s ease-in;
+}
+.t-badge .modal-enter-to {
+  scale: 1;
+  opacity: 1;
+}
+.t-badge .modal-leave-from {
+  scale: 1;
+  opacity: 1;
+}
+.t-badge .modal-leave-active {
+  transition: all 0.2s ease-out;
+}
+.t-badge .modal-leave-to {
+  scale: 0;
+  opacity: 0;
+}
+
+.t-badge {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  line-height: 1;
+}
+.t-badge__dot {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+}
+.t-badge__dot.is-inDot {
+  top: 4px;
+  right: 4px;
+}
+
+.t-badge__count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0 6px;
+  font-size: 12px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 20px;
+}
+.t-badge__count.is-round {
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.t-badge--stand {
+  position: static;
+}
+
+.t-badge--primary {
+  --teal-badge-bg-color: var(--teal-color-primary);
+}
+
+.t-badge--success {
+  --teal-badge-bg-color: var(--teal-color-success);
+}
+
+.t-badge--danger {
+  --teal-badge-bg-color: var(--teal-color-danger);
+}
+
+.t-badge--warning {
+  --teal-badge-bg-color: var(--teal-color-warning);
+}
+
+.t-badge--left {
+  top: 0;
+  left: 0;
+}
+
+.t-badge--left {
+  top: 0;
+  right: 0;
+}

@@ -1,0 +1,39 @@
+@use "./mixin/mixins.scss" as *;
+@include b("inputNumber") {
+}
+@include b("inputNumber") {
+  @include e("buttons--number") {
+    position: absolute;
+    right: calc(-1 * var(--teal-input-padding-inline) + 2px);
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    padding: 2px 0px;
+    box-sizing: border-box;
+    .t-button {
+      height: 50%;
+      padding: 0;
+      .t-icon {
+        color: var(--teal-text-color-secondary);
+      }
+    }
+    & .t-button:first-child {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    & .t-button:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    &--s {
+      .t-icon {
+        font-size: 12px;
+      }
+    }
+    &--l {
+      .t-icon {
+        font-size: 16px;
+      }
+    }
+  }
+}

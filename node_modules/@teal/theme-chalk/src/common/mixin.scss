@@ -1,0 +1,27 @@
+@use "sass:math";
+@use "sass:color";
+
+// 生成渐变颜色
+@mixin createColor($colors) {
+  @each $key, $color in $colors {
+    --teal-color-#{$key}: #{$color};
+
+    // -------------- 1-5 变浅 --------------
+    @for $i from 1 to 6 {
+      $opacify: math.percentage(calc(1 - $i / 15));
+      $current_color: color.scale($color, $lightness: $opacify);
+      --teal-color-#{$key}-#{$i}: #{$current_color};
+    }
+
+    // -------------- 6 接近 --------------
+    $current_color: color.scale($color, $lightness: 25%);
+    --teal-color-#{$key}-6: #{$current_color};
+
+    // -------------- 7-10 变深 --------------
+    @for $i from 7 to 11 {
+      $opacify: math.percentage(calc(($i - 5) / 10));
+      $current_color: color.scale($color, $lightness: -$opacify);
+      --teal-color-#{$key}-#{$i}: #{$current_color};
+    }
+  }
+}

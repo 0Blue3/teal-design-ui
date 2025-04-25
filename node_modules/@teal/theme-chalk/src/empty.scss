@@ -1,0 +1,23 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("empty") {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin-block: 24px;
+  @include e("image") {
+    line-height: 1;
+    width: 120px;
+    height: 120px;
+  }
+  @include e("description") {
+    p {
+      font-size: 14px;
+      color: rgb(144, 147, 153);
+      margin: 0px;
+    }
+  }
+}

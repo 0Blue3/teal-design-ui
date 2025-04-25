@@ -1,0 +1,102 @@
+.left-no-border-radius {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.right-no-border-radius {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.disabled {
+  display: inline-flex;
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+.disabled::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.readonly {
+  display: inline-flex;
+}
+.readonly::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.loading {
+  display: inline-flex;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.loading::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.t-scrollbar {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+}
+.t-scrollbar-wrap {
+  overflow: auto;
+  height: 100%;
+}
+.t-scrollbar-wrap--defaultHide {
+  scrollbar-width: none;
+}
+.t-scrollbar-wrap--defaultHide::-webkit-scrollbar {
+  display: none;
+}
+.t-scrollbar-bar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-radius: 4px;
+}
+.t-scrollbar-bar--vertical {
+  top: 0;
+  width: 5px;
+}
+.t-scrollbar-bar--vertical > div {
+  width: 100%;
+}
+.t-scrollbar-bar--horizontal {
+  left: 0;
+  height: 5px;
+}
+.t-scrollbar-bar--horizontal > div {
+  height: 100%;
+}
+.t-scrollbar-bar__thumb {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-radius: inherit;
+  background-color: var(--teal-color-gray-1);
+  transition: background 0.3s;
+  cursor: pointer;
+}
+.t-scrollbar-bar__thumb:hover, .t-scrollbar-bar__thumb:active {
+  background-color: var(--teal-color-gray-3);
+}

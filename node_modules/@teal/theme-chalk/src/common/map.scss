@@ -1,0 +1,100 @@
+// mix-color
+$p_color: var(--teal-color-primary);
+$p_color_1: var(--teal-color-primary-1);
+$p_color_2: var(--teal-color-primary-2);
+$p_color_3: var(--teal-color-primary-3);
+$p_color_4: var(--teal-color-primary-4);
+$p_color_5: var(--teal-color-primary-5);
+$p_color_6: var(--teal-color-primary-6);
+$p_color_7: var(--teal-color-primary-7);
+$p_color_8: var(--teal-color-primary-8);
+$p_color_9: var(--teal-color-primary-9);
+$p_color_10: var(--teal-color-primary-10);
+
+// 成功色渐变
+$s_color: var(--teal-color-success);
+$s_color_1: var(--teal-color-success-1);
+$s_color_2: var(--teal-color-success-2);
+$s_color_3: var(--teal-color-success-3);
+$s_color_4: var(--teal-color-success-4);
+$s_color_5: var(--teal-color-success-5);
+$s_color_6: var(--teal-color-success-6);
+$s_color_7: var(--teal-color-success-7);
+$s_color_8: var(--teal-color-success-8);
+$s_color_9: var(--teal-color-success-9);
+$s_color_10: var(--teal-color-success-10);
+
+// 警告色渐变
+$w_color: var(--teal-color-warning);
+$w_color_1: var(--teal-color-warning-1);
+$w_color_2: var(--teal-color-warning-2);
+$w_color_3: var(--teal-color-warning-3);
+$w_color_4: var(--teal-color-warning-4);
+$w_color_5: var(--teal-color-warning-5);
+$w_color_6: var(--teal-color-warning-6);
+$w_color_7: var(--teal-color-warning-7);
+$w_color_8: var(--teal-color-warning-8);
+$w_color_9: var(--teal-color-warning-9);
+$w_color_10: var(--teal-color-warning-10);
+
+// 错误色渐变
+$d_color: var(--teal-color-danger);
+$d_color_1: var(--teal-color-danger-1);
+$d_color_2: var(--teal-color-danger-2);
+$d_color_3: var(--teal-color-danger-3);
+$d_color_4: var(--teal-color-danger-4);
+$d_color_5: var(--teal-color-danger-5);
+$d_color_6: var(--teal-color-danger-6);
+$d_color_7: var(--teal-color-danger-7);
+$d_color_8: var(--teal-color-danger-8);
+$d_color_9: var(--teal-color-danger-9);
+$d_color_10: var(--teal-color-danger-10);
+
+// 中性色
+$g_color: var(--teal-color-gray);
+$gray-1: var(--teal-color-gray-1);
+$gray-2: var(--teal-color-gray-2);
+$gray-3: var(--teal-color-gray-3);
+$gray-4: var(--teal-color-gray-4);
+$gray-5: var(--teal-color-gray-5);
+$gray-6: var(--teal-color-gray-6);
+$gray-7: var(--teal-color-gray-7);
+$gray-8: var(--teal-color-gray-8);
+$gray-9: var(--teal-color-gray-9);
+$gray-10: var(--teal-color-gray-10);
+
+// ---------- 基础颜色映射 ----------
+$type_colors_map: primary success info warning danger;
+
+// ---------- 字体大小和行高 ----------
+.font-ss {
+  font-size: var(--teal-font-size-ss);
+  line-height: var(--teal-line-height-ss);
+}
+.font-s {
+  font-size: var(--teal-font-size-s);
+  line-height: var(--teal-line-height-s);
+}
+
+.font-m {
+  font-size: var(--teal-font-size-m);
+  line-height: var(--teal-line-height-m);
+}
+.font-l {
+  font-size: var(--teal-font-size-l);
+  line-height: var(--teal-line-height-l);
+}
+.font-xl {
+  font-size: var(--teal-font-size-xl);
+  line-height: var(--teal-line-height-xl);
+}
+
+.font-30 {
+  font-size: var(--teal-font-size-heading-2);
+  line-height: var(--teal-line-height-heading-2);
+}
+
+.font-38 {
+  font-size: var(--teal-font-size-heading-1);
+  line-height: var(--teal-line-height-heading-1);
+}

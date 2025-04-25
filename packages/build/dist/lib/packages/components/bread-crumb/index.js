@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});require("vue");const e=require("../../utils/with-install.js"),t=require("./src/breadcrumb.vue.js"),r=require("./src/breadcrumb-item.vue.js"),u=e.withInstall(t),l=e.withInstall(r);exports.TlBreadcrumbItem=l;exports.default=u;

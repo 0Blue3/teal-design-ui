@@ -1,0 +1,127 @@
+.left-no-border-radius {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.right-no-border-radius {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.disabled {
+  display: inline-flex;
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+.disabled::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.readonly {
+  display: inline-flex;
+}
+.readonly::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.loading {
+  display: inline-flex;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.loading::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.t-tree {
+  display: inline-block;
+  width: 100%;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: height 0.3s;
+}
+
+.t-tree-node {
+  display: flex;
+  align-items: center;
+  margin: 2px 0;
+  height: 32px;
+  transition: all 0.3s cubic-bezier(0.34, 0.69, 0.1, 1);
+  transform-origin: top center;
+}
+.t-tree-node__switcher {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  border-radius: 2px;
+  color: var(--teal-color-gray-8);
+  transform: rotate(0deg);
+  transition: transform 0.2s ease-in;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.t-tree-node__switcher.expanded {
+  transform: rotate(90deg);
+}
+.t-tree-node__switcher.is-leaf {
+  color: transparent;
+  cursor: default;
+}
+.t-tree-node__switcher:hover {
+  background-color: var(--teal-bg-color-3);
+}
+
+.t-tree-node__label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in;
+}
+.t-tree-node__label:hover {
+  background-color: var(--teal-bg-color-3);
+}
+.t-tree-node__label.is-selected {
+  color: var(--teal-color-primary);
+}
+
+.t-tree-node.is-disabled {
+  /* &:hover {
+    background-color: transparent;
+  } */
+}
+.t-tree-node.is-disabled .t-tree-node__label {
+  cursor: not-allowed;
+  background: #ccc;
+}
+
+.t-tree-node-label__file {
+  color: var(--teal-color-gray-7);
+  margin-right: 5px;
+}

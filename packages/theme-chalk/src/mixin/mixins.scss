@@ -1,0 +1,123 @@
+// BEM规范
+@use "config" as *;
+@forward "config";
+
+// b(button) => .t-button
+@mixin b($block) {
+  $B: $namespace + "-" + $block;
+  .#{$B} {
+    @content;
+  }
+}
+// when(checked) => &.is-checked
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+// m(primary) => &--primary
+@mixin m($modifier) {
+  @at-root {
+    #{& + $modifier-separator + $modifier} {
+      @content;
+    }
+  }
+}
+// e(header) => &__header
+@mixin e($element) {
+  @at-root {
+    #{& + $element-separator + $element} {
+      @content;
+    }
+  }
+}
+
+// theme 主题切换
+$themes: (
+  light: (
+    bgColor: #fff,
+    textColor: #000,
+  ),
+  dark: (
+    bgColor: #000,
+    textColor: #fff,
+  ),
+);
+$curTheme: light;
+@mixin useTheme() {
+  @each $key, $value in $themes {
+    $curTheme: $key !global;
+    html[data-theme="#{$key}"] & {
+      @content;
+    }
+  }
+}
+
+// 定义不同状态的 颜色 背景色 边框色
+@mixin declare-color($block, $type, $val1, $val2, $val3) {
+  --teal-#{$block}-#{$type}-text-color: #{$val1};
+  --teal-#{$block}-#{$type}-bg-color: #{$val2};
+  --teal-#{$block}-#{$type}-border-color: #{$val3};
+}
+
+// 为按钮生成 颜色 背景色 边框色
+@mixin button-variant($color, $background-color, $border-color) {
+  color: $color;
+  background-color: $background-color;
+  border-color: $border-color;
+}
+
+.left-no-border-radius {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.right-no-border-radius {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.disabled {
+  display: inline-flex;
+  opacity: 0.56;
+  cursor: not-allowed;
+  &::before {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    content: "";
+  }
+}
+
+.readonly {
+  display: inline-flex;
+  &::before {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    content: "";
+  }
+}
+
+.loading {
+  display: inline-flex;
+  opacity: 0.72;
+  pointer-events: none;
+  &::before {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    content: "";
+  }
+}

@@ -1,0 +1,186 @@
+@use "mixin/mixins.scss" as *;
+@use "common/map.scss" as *;
+
+@include b("radio-group") {
+  --teal-radio-group-padding: 4px;
+  --teal-radio-group-border-radius: 8px;
+}
+
+@include b("radio") {
+  // size 相关
+  //   --teal-radio-height: 22px;
+  --teal-radio-size: 16px;
+  --teal-radio-margin-right: var(--teal-space-size-m);
+  --teal-radio-inner-size: 6px;
+  --teal-radio-button-margin-left: 3px;
+  --teal-radio-button-height: 30px;
+  --teal-radio-button-font-size: 14px;
+  --teal-radio-button-padding: 0 16px;
+  --teal-radio-button-border-radius: 6px;
+}
+
+@include b("radio-group") {
+  display: flex;
+  /* flex-direction: row; */
+  /* align-items: center; */
+
+  &--vertical {
+    align-items: flex-start !important;
+  }
+
+  @include e("container") {
+    display: flex;
+    background-color: var(--teal-bg-color-3);
+    border-radius: var(--teal-radio-group-border-radius);
+    padding: var(--teal-radio-group-padding);
+  }
+
+  &--s {
+    --teal-radio-group-padding: 3px;
+    --teal-radio-group-border-radius: 6px;
+  }
+
+  &--l {
+    --teal-radio-group-padding: 6px;
+    --teal-radio-group-border-radius: 10px;
+  }
+}
+
+@include b("radio") {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+  //   height: var(--teal-radio-height);
+  transition: color 0.2s;
+  @extend .font-m;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+  &--s {
+    --teal-radio-size: 12px;
+    --teal-radio-margin-right: var(--teal-space-size-s);
+    --teal-radio-inner-size: 5px;
+    @extend .font-s;
+
+    --teal-radio-button-margin-left: 2px;
+    --teal-radio-button-height: 24px;
+    --teal-radio-button-font-size: 12px;
+    --teal-radio-button-padding: 0 10px;
+    --teal-radio-button-border-radius: 3px;
+  }
+
+  &--l {
+    --teal-radio-size: 20px;
+    --teal-radio-margin-right: var(--teal-space-size-l);
+    --teal-radio-inner-size: 9px;
+    @extend .font-l;
+
+    --teal-radio-button-margin-left: 3px;
+    --teal-radio-button-height: 35px;
+    --teal-radio-button-font-size: 16px;
+    --teal-radio-button-padding: 0 18px;
+    --teal-radio-button-border-radius: 6px;
+  }
+
+  @include when("disabled") {
+    cursor: not-allowed;
+    color: var(--teal-text-color-disabled);
+  }
+
+  @include e("box") {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--teal-radio-margin-right);
+    min-width: var(--teal-radio-size);
+    min-height: var(--teal-radio-size);
+    border: 1px solid var(--teal-border-color);
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: border 0.3s ease-in-out;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border-radius: inherit;
+      opacity: 0;
+      box-shadow: 0 0 0 calc(17px / 2.5) var(--teal-color-primary);
+      transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+    }
+
+    &:hover {
+      border-color: var(--teal-color-primary);
+    }
+    @include when("checked") {
+      border-color: var(--teal-color-primary);
+      background-color: var(--teal-color-primary);
+    }
+    @include when("disabled") {
+      border-color: var(--teal-border-color-light);
+      background-color: var(--teal-bg-color-2);
+    }
+  }
+
+  @include e("inner") {
+    width: var(--teal-radio-inner-size);
+    height: var(--teal-radio-inner-size);
+    border-radius: 50%;
+    background-color: var(--teal-bg-color-1);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    @include when("checked") {
+      opacity: 1;
+    }
+
+    @include when("disabled") {
+      background-color: var(--teal-color-gray-5);
+    }
+  }
+
+  @include e("label") {
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      color: var(--teal-text-color-primary);
+    }
+
+    &--button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      color: var(--teal-color-gray-8);
+
+      margin-left: var(--teal-radio-button-margin-left);
+      height: var(--teal-radio-button-height);
+      font-size: var(--teal-radio-button-font-size);
+      padding: var(--teal-radio-button-padding);
+      border-radius: var(--teal-radio-button-border-radius);
+
+      &:hover {
+        background-color: var(--teal-bg-color-1);
+      }
+
+      &.is-checked {
+        color: var(--teal-color-primary);
+        background-color: var(--teal-bg-color-1);
+      }
+
+      &.is-solid.is-checked {
+        color: var(--teal-bg-color-1);
+        background-color: var(--teal-color-primary-6);
+      }
+    }
+  }
+
+  @include m("button") {
+    height: auto;
+  }
+}

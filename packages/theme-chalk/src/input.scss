@@ -1,0 +1,244 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("input") {
+  --teal-input-bg-color: var(--teal-bg-color-1);
+  --teal-input-hover-bg-color: var(--teal-bg-color-1);
+  --teal-input-focus-bg-color: var(--teal-bg-color-1);
+  --teal-input-disabled-text-color: var(--teal-text-color-regular);
+  --teal-input-disabled-bg-color: var(--teal-bg-color-3);
+  --teal-input-readonly-bg-color: var(--teal-bg-color-2);
+  --teal-input-text-color: var(--teal-text-color-primary);
+
+  /* size */
+  // height
+  --teal-input-height-sm: 24px;
+  --teal-input-height: 36px;
+  --teal-input-height-lg: 40px;
+  // font-size
+  --teal-input-text-size-sm: 14px;
+  --teal-input-text-size: 14px;
+  --teal-input-text-size-lg: 16px;
+  // border-radius
+  --teal-input-border-radius-sm: 4px;
+  --teal-input-border-radius: 6px;
+  --teal-input-border-radius-lg: 6px;
+  // padding
+  --teal-input-padding-inline-sm: 7px;
+  --teal-input-padding-inline: 12px;
+  --teal-input-padding-inline-lg: 12px;
+
+  /* status */
+  // border-color
+  --teal-input-border-color: var(--teal-border-color);
+  --teal-input-hover-border-color: var(--teal-color-primary-5);
+  --teal-input-fucus-border-color: var(--teal-color-primary-6);
+
+  --teal-input-message-color: var(--teal-input-text-color);
+}
+
+@include b("input") {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: var(--teal-input-height);
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  /* wrapper */
+  @include e("wrapper") {
+    display: inline-flex;
+    width: inherit;
+    height: inherit;
+    transition: all 0.2s ease-in-out;
+    background: var(--teal-input-bg-color);
+    border-width: var(--teal-line-width);
+    border-style: var(--teal-line-type);
+
+    // size 相关
+    border-radius: var(--teal-input-border-radius);
+    padding: 0 var(--teal-input-padding-inline);
+
+    // outline相关
+    border-color: var(--teal-input-border-color);
+
+    &:not(.is-disabled, .is-readonly) {
+      &:hover {
+        background-color: var(--teal-input-hover-bg-color);
+        border-color: var(--teal-input-hover-border-color);
+      }
+
+      @include when("focus") {
+        background-color: var(--teal-input-focus-bg-color);
+        border-color: var(--teal-input-fucus-border-color);
+      }
+    }
+
+    @include when("disabled") {
+      background: var(--teal-input-disabled-bg-color);
+      cursor: not-allowed;
+      .t-input__inner {
+        cursor: not-allowed;
+        color: var(--teal-input-disabled-text-color);
+      }
+    }
+    @include when("readonly") {
+      background: var(--teal-input-readonly-bg-color);
+    }
+
+    @each $status in (success, warning, danger) {
+      &--#{$status} {
+        --teal-input-bg-color: var(--teal-color-#{$status}-3);
+        --teal-input-border-color: var(--teal-color-#{$status}-5);
+        --teal-input-hover-border-color: var(--teal-color-#{$status}-5);
+        --teal-input-fucus-border-color: var(--teal-color-#{$status}-6);
+        --teal-input-hover-bg-color: var(--teal-color-#{$status}-2);
+        --teal-input-focus-bg-color: var(--teal-color-#{$status}-1);
+        --teal-input-disabled-bg-color: var(--teal-input-hover-bg-color);
+      }
+    }
+  }
+  /* inner */
+  @include e("inner") {
+    flex-grow: 1;
+    flex-shrink: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    min-width: 0;
+    /* width: 100%; */
+    color: var(--teal-input-text-color);
+    height: inherit;
+    font-size: var(--teal-input-text-size);
+    border-radius: var(--teal-input-border-radius);
+  }
+
+  /* prepend append */
+  &__prepend,
+  &__append {
+    background-color: var(--teal-bg-color-3);
+    color: var(--teal-color-gray-6);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    border-radius: var(--teal-input-border-radius);
+    /* padding: 0 calc(var(--teal-input-padding-inline) + 8px); */
+    white-space: nowrap;
+  }
+
+  &__prepend button {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+
+  &__append button {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  @include e("prepend") {
+    @extend .right-no-border-radius;
+  }
+
+  @include e("append") {
+    @extend .left-no-border-radius;
+  }
+
+  @include when("prepend") {
+    .t-input__wrapper {
+      @extend .left-no-border-radius;
+    }
+  }
+
+  @include when("append") {
+    .t-input__wrapper {
+      @extend .right-no-border-radius;
+    }
+  }
+
+  /* prefix suffix */
+  &__prefix,
+  &__suffix {
+    position: relative;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include e("prefix") {
+    padding-right: var(--teal-input-padding-inline);
+  }
+  @include e("suffix") {
+    padding-left: var(--teal-input-padding-inline);
+  }
+
+  /* buttons-icon */
+  @include e("buttons") {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+    color: var(--teal-color-gray-5);
+    padding-left: var(--teal-input-padding-inline);
+  }
+
+  &__buttons .t-icon {
+    background: transparent;
+    // 为了能在输入框非激活被聚焦，调整透明度而不是 display: none
+    opacity: 0;
+    transition: all 0.2s;
+    cursor: text;
+
+    &:focus-within {
+      // 功能按钮被聚焦，取消隐藏
+      opacity: 1;
+    }
+
+    &.is-show {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    &:hover {
+      color: var(--teal-color-gray-6);
+    }
+  }
+
+  &__buttons .t-icon + .t-icon {
+    margin-left: 5px;
+  }
+
+  /* counter */
+  @include e("counter") {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(var(--teal-input-text-size) - 2);
+    color: var(--teal-color-gray-5);
+  }
+
+  &--s {
+    --teal-input-height: var(--teal-input-height-sm);
+    --teal-input-text-size: var(--teal-input-text-size-sm);
+    --teal-input-padding-inline: var(--teal-input-padding-inline-sm);
+    --teal-input-border-radius: var(--teal-input-border-radius-sm);
+  }
+
+  &--l {
+    --teal-input-height: var(--teal-input-height-lg);
+    --teal-input-text-size: var(--teal-input-text-size-lg);
+    --teal-input-padding-inline: var(--teal-input-padding-inline-lg);
+    --teal-input-border-radius: var(--teal-input-border-radius-lg);
+  }
+
+  @include e("message") {
+    @each $status in (success, danger, warning) {
+      &--#{$status} {
+        color: var(--teal-color-#{$status});
+      }
+    }
+  }
+}

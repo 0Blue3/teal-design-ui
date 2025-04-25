@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});require("vue");const e=require("../../utils/with-install.js"),t=require("./src/dropdown.vue.js"),r=require("./src/dropdown-item.vue.js"),o=e.withInstall(t),u=e.withInstall(r);exports.TlDropdownItem=u;exports.default=o;

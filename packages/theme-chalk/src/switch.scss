@@ -1,0 +1,93 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("switch") {
+  --teal-switch-min-width: 40px;
+  --teal-switch-height: 22px;
+  --teal-switch-border-radius: 11px;
+  --teal-switch-bg-color: var(--teal-bg-color-4);
+  --teal-switch-disabled-bg-color: var(--teal-bg-color-3);
+  --teal-switch-checked-bg-color: var(--teal-color-primary);
+  --teal-switch-checked-disabled-bg-color: var(--teal-color-primary-6);
+  --teal-switch-dot-size: 16px;
+  --teal-switch-dot-top: 3px;
+  --teal-switch-dot-bg-color: var(--teal-bg-color-1);
+}
+
+@include b("switch") {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: var(--teal-switch-bg-color);
+  transition: background-color 0.2s ease-in-out;
+  box-sizing: border-box;
+  vertical-align: middle;
+  cursor: pointer;
+  min-width: var(--teal-switch-min-width);
+  height: var(--teal-switch-height);
+  line-height: var(--teal-switch-height);
+  border-radius: var(--teal-switch-border-radius);
+  &--s {
+    --teal-switch-min-width: 32px;
+    --teal-switch-height: 18px;
+    --teal-switch-border-radius: 10px;
+    --teal-switch-dot-size: 12px;
+    --teal-switch-dot-top: 3px;
+  }
+  &--l {
+    --teal-switch-min-width: 45px;
+    --teal-switch-height: 26px;
+    --teal-switch-border-radius: 12px;
+    --teal-switch-dot-size: 18px;
+    --teal-switch-dot-top: 4px;
+  }
+  @include e("dot") {
+    height: var(--teal-switch-dot-size);
+    width: var(--teal-switch-dot-size);
+    border-radius: 50%;
+    background-color: var(--teal-switch-dot-bg-color);
+    position: absolute;
+    top: var(--teal-switch-dot-top);
+    left: var(--teal-switch-dot-top);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+  }
+  @include e("text") {
+    font-size: 10px;
+    color: #fff;
+    padding-left: calc(
+      var(--teal-switch-dot-size) + var(--teal-switch-dot-top) + 1px
+    );
+    padding-right: 0;
+  }
+  @include when("checked") {
+    --teal-switch-bg-color: var(--teal-switch-checked-bg-color);
+    .t-switch__dot {
+      left: calc(
+        100% - var(--teal-switch-dot-size) - var(--teal-switch-dot-top)
+      );
+    }
+    .t-switch__text {
+      padding-right: calc(
+        var(--teal-switch-dot-size) + var(--teal-switch-dot-top)
+      );
+      padding-left: 0;
+    }
+  }
+
+  @include when("disabled") {
+    --teal-switch-bg-color: var(--teal-switch-disabled-bg-color);
+    cursor: not-allowed;
+    &.is-checked {
+      --teal-switch-bg-color: var(--teal-switch-checked-disabled-bg-color);
+    }
+  }
+
+  @include when("loading") {
+    cursor: not-allowed;
+    color: var(--teal-color-primary);
+  }
+}

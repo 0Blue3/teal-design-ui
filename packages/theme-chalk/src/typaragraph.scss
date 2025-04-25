@@ -1,0 +1,115 @@
+@use "mixin/mixins.scss" as *;
+@use "common/map.scss" as *;
+
+@include b("title") {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  color: var(--teal-text-color-primary);
+
+  @include m("secondary") {
+    color: var(--teal-text-color-secondary);
+  }
+}
+h1.t-title {
+  @extend .font-38;
+}
+h2.t-title {
+  @extend .font-30;
+}
+h3.t-title {
+  @extend .font-xl;
+}
+h4.t-title {
+  @extend .font-l;
+}
+h5.t-title {
+  @extend .font-m;
+}
+
+@include b("text") {
+  color: var(--teal-color-gray);
+  font-size: var(--teal-font-size-s);
+  line-height: var(--teal-line-height-s);
+
+  @include m("secondary") {
+    color: var(--teal-color-gray-6);
+  }
+  @include m("third") {
+    color: var(--teal-color-gray-5);
+  }
+  @include when("disabled") {
+    color: var(--teal-color-gray-4);
+  }
+  @include when("mark") {
+    background-color: rgba(255, 214, 28, 0.48);
+  }
+  @include when("strong") {
+    font-weight: 700;
+  }
+  @include when("underline") {
+    text-decoration: underline;
+  }
+  @include when("del") {
+    text-decoration: line-through;
+  }
+}
+
+$colors: primary success warning danger;
+
+@each $color in $colors {
+  $val: var(--teal-color-#{$color});
+  @include b("title") {
+    @include m($color) {
+      color: $val;
+    }
+  }
+  @include b("text") {
+    @include m($color) {
+      color: $val;
+    }
+  }
+}
+
+@include b("paragraph") {
+  position: relative;
+  margin-bottom: 1em;
+  overflow: hidden;
+  transition: 0.2s;
+
+  @include e("copy") {
+    color: var(--teal-text-color-secondary);
+    transform: 0.5s;
+    cursor: pointer;
+    &:hover {
+      color: var(--teal-color-primary-6);
+    }
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+
+  @include e("more") {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    color: var(--teal-color-primary);
+    background-color: var(--teal-bg-color-1);
+    -webkit-user-select: none;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -150%;
+      display: inline-block;
+      width: 150%;
+      height: 100%;
+      background-color: var(--teal-bg-color-1);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 75%);
+      mask-image: linear-gradient(90deg, transparent, #000 75%);
+      pointer-events: none;
+    }
+  }
+}

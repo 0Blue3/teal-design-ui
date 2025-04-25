@@ -1,0 +1,1 @@
+"use strict";const o=require("vue"),r=c=>{const e=o.ref("beforeLoad"),t=o.computed(()=>e.value==="beforeLoad"),a=o.computed(()=>e.value==="loading"),s=o.computed(()=>e.value==="error"),u=o.computed(()=>e.value==="loaded");return{status:e,isBeforeLoad:t,isLoading:a,isError:s,isLoaded:u,setLoadStatus:d=>{e.value=d}}};module.exports=r;

@@ -1,0 +1,81 @@
+@use "mixin/mixins.scss" as *;
+
+@include b(tree) {
+  display: inline-block;
+  width: 100%;
+  // display: flex;
+  // flex: 1;
+  // align-items: center;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: height 0.3s;
+}
+
+@include b("tree-node") {
+  display: flex;
+  align-items: center;
+  margin: 2px 0;
+  height: 32px;
+  transition: all 0.3s cubic-bezier(0.34, 0.69, 0.1, 1);
+  transform-origin: top center;
+
+  @include e("switcher") {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    border-radius: 2px;
+    color: var(--teal-color-gray-8);
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in;
+    border-radius: 5px;
+    cursor: pointer;
+    &.expanded {
+      transform: rotate(90deg);
+    }
+    &.is-leaf {
+      color: transparent;
+      cursor: default;
+    }
+    &:hover {
+      background-color: var(--teal-bg-color-3);
+    }
+  }
+
+  @include e("label") {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 4px;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in;
+    &:hover {
+      background-color: var(--teal-bg-color-3);
+    }
+    @include when("selected") {
+      color: var(--teal-color-primary);
+    }
+  }
+
+  @include when("disabled") {
+    /* &:hover {
+      background-color: transparent;
+    } */
+    .t-tree-node__label {
+      cursor: not-allowed;
+      background: #ccc;
+    }
+  }
+}
+
+@include b("tree-node-label") {
+  @include e("file") {
+    color: var(--teal-color-gray-7);
+    margin-right: 5px;
+  }
+}

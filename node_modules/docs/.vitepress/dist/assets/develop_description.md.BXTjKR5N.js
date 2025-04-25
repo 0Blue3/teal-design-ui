@@ -1,0 +1,1 @@
+import{_ as e,c as t,o}from"./chunks/framework.B-KYV_OB.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"develop/description.md","filePath":"develop/description.md"}'),r={name:"develop/description.md"};function a(s,c,n,i,p,d){return o(),t("div")}const m=e(r,[["render",a]]);export{l as __pageData,m as default};

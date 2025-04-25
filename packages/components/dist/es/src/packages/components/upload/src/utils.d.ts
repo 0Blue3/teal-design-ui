@@ -1,0 +1,10 @@
+import { UploadFile, UserFile } from './upload';
+export declare const imageTypes: string[];
+export declare function getArcPath(cx: number, cy: number, r: number, progress: number): string;
+export declare function generateListUid(list: UserFile[]): any[];
+export declare function findFile(file: UploadFile, fileList: Array<UploadFile>): number;
+export declare function findFileByUid(uid: number, fileList: Array<UploadFile>): number;
+export declare function getFileTypeIconName(fileName: string): string | undefined;
+export declare function filesFiltered(files: File[], accept: string): void;
+export declare function base64ToFile(base64Data: string, fileName: string): File;
+export declare function blobToFile(blob: Blob, fileName: string): File;

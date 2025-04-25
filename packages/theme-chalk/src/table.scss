@@ -1,0 +1,66 @@
+@use "./mixin/mixins.scss" as *;
+@use "./common/map.scss" as *;
+
+@include b("table") {
+  overflow-x: auto;
+  & > table {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    border-spacing: 0;
+  }
+
+  th {
+    padding: 0 var(--teal-space-size-xl);
+    background-color: var(--teal-bg-color-3);
+
+    .cell {
+      font-weight: 600;
+    }
+  }
+
+  @include e("cell") {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    max-width: 240px;
+    height: 56px;
+    border-bottom: 1px solid var(--teal-color-gray-1);
+    text-align: left;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    vertical-align: middle;
+    @extend .font-s;
+
+    & .cell {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      box-sizing: border-box;
+      word-break: break-all;
+      line-height: 1.4;
+    }
+  }
+
+  @include e("row") {
+    background-color: var(--teal-bg-color-1);
+
+    &:hover {
+      background-color: var(--teal-bg-color-2);
+    }
+    .t-table__cell {
+      padding: 0 24px;
+    }
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+}

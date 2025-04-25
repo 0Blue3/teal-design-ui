@@ -1,0 +1,4 @@
+const s = "data:image/svg+xml,%3c?xml%20version='1.0'%20standalone='no'?%3e%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3csvg%20t='1745055357140'%20class='icon'%20viewBox='0%200%201024%201024'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20p-id='2921'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20width='200'%20height='200'%3e%3cpath%20d='M831.7%20369.4H193.6L64%20602v290.3h897.2V602L831.7%20369.4zM626.6%20604.6c0%2062.9-51%20113.9-114%20113.9s-114-51-114-113.9H117.5l103.8-198h582.5l103.8%20198h-281zM502.2%20131h39.1v140.6h-39.1z%20m-265.345%2069.802l27.647-27.647%2099.419%2099.418-27.648%2027.648z%20m430.692%2071.835l99.418-99.419%2027.648%2027.648-99.418%2099.418z'%20p-id='2922'%20fill='%23e6e6e6'%3e%3c/path%3e%3c/svg%3e";
+export {
+  s as default
+};

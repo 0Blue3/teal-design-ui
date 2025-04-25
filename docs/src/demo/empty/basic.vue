@@ -1,0 +1,3 @@
+<template>
+  <tl-empty />
+</template>

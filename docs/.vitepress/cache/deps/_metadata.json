@@ -1,0 +1,76 @@
+{
+  "hash": "215e07b3",
+  "configHash": "3888c4f2",
+  "lockfileHash": "88c5eb69",
+  "browserHash": "9cb7306a",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/.pnpm/vue@3.5.13_typescript@5.8.2/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "c8615e20",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../../node_modules/.pnpm/@vue+devtools-api@7.7.2/node_modules/@vue/devtools-api/dist/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "3457259f",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/core": {
+      "src": "../../../../node_modules/.pnpm/@vueuse+core@12.8.2_typescript@5.8.2/node_modules/@vueuse/core/index.mjs",
+      "file": "vitepress___@vueuse_core.js",
+      "fileHash": "1823e826",
+      "needsInterop": false
+    },
+    "@vitepress-demo-preview/component": {
+      "src": "../../../../node_modules/.pnpm/@vitepress-demo-preview+com_23ba3f15123b4c36dd5bd23072c51c54/node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
+      "file": "@vitepress-demo-preview_component.js",
+      "fileHash": "e45331df",
+      "needsInterop": false
+    },
+    "@fortawesome/fontawesome-svg-core": {
+      "src": "../../../../node_modules/.pnpm/@fortawesome+fontawesome-svg-core@6.7.2/node_modules/@fortawesome/fontawesome-svg-core/index.mjs",
+      "file": "@fortawesome_fontawesome-svg-core.js",
+      "fileHash": "7dbf3eac",
+      "needsInterop": false
+    },
+    "@fortawesome/free-solid-svg-icons": {
+      "src": "../../../../node_modules/.pnpm/@fortawesome+free-solid-svg-icons@6.7.2/node_modules/@fortawesome/free-solid-svg-icons/index.mjs",
+      "file": "@fortawesome_free-solid-svg-icons.js",
+      "fileHash": "bcf3710d",
+      "needsInterop": false
+    },
+    "@fortawesome/vue-fontawesome": {
+      "src": "../../../../node_modules/.pnpm/@fortawesome+vue-fontawesom_0dffa63c46a30535dc47b65774fece1f/node_modules/@fortawesome/vue-fontawesome/index.es.js",
+      "file": "@fortawesome_vue-fontawesome.js",
+      "fileHash": "a12a633a",
+      "needsInterop": false
+    },
+    "lodash-es": {
+      "src": "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/lodash.js",
+      "file": "lodash-es.js",
+      "fileHash": "e2ff3504",
+      "needsInterop": false
+    },
+    "async-validator": {
+      "src": "../../../../node_modules/.pnpm/async-validator@4.2.5/node_modules/async-validator/dist-web/index.js",
+      "file": "async-validator.js",
+      "fileHash": "0f3fd491",
+      "needsInterop": false
+    },
+    "@floating-ui/vue": {
+      "src": "../../../../node_modules/.pnpm/@floating-ui+vue@1.1.6_vue@3.5.13_typescript@5.8.2_/node_modules/@floating-ui/vue/dist/floating-ui.vue.mjs",
+      "file": "@floating-ui_vue.js",
+      "fileHash": "e0233cec",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-IA4MHOT7": {
+      "file": "chunk-IA4MHOT7.js"
+    },
+    "chunk-4YE7YZ73": {
+      "file": "chunk-4YE7YZ73.js"
+    }
+  }
+}

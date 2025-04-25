@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});require("vue");const t=require("../../utils/with-install.js"),e=require("./src/title.vue.js"),r=require("./src/text.vue.js"),l=require("./src/paragraph.vue.js"),_=t.withInstall(e),u=t.withInstall(r),s=t.withInstall(l);exports.TlParagraph=s;exports.TlText=u;exports.TlTitle=_;

@@ -1,0 +1,140 @@
+.left-no-border-radius {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.right-no-border-radius {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.disabled {
+  display: inline-flex;
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+.disabled::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.readonly {
+  display: inline-flex;
+}
+.readonly::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.loading {
+  display: inline-flex;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.loading::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.t-space {
+  display: flex;
+  transform: all 0.3s ease-in-out;
+  gap: var(--teal-space-size-s);
+}
+.t-space.is-inline {
+  display: inline-flex;
+}
+
+.t-space--dir-horizontal-reverse {
+  flex-direction: row-reverse;
+}
+.t-space--dir-vertical {
+  flex-direction: column;
+}
+.t-space--dir-vertical-reverse {
+  flex-direction: column-reverse;
+}
+
+.t-space--align-start {
+  align-items: start;
+}
+.t-space--align-center {
+  align-items: center;
+}
+.t-space--align-end {
+  align-items: end;
+}
+.t-space--align-baseline {
+  align-items: baseline;
+}
+
+.t-space--justify-start {
+  justify-content: flex-start;
+}
+.t-space--justify-end {
+  justify-content: flex-end;
+}
+.t-space--justify-center {
+  justify-content: center;
+}
+.t-space--justify-around {
+  justify-content: space-around;
+}
+.t-space--justify-between {
+  justify-content: space-between;
+}
+.t-space--justify-evenly {
+  justify-content: space-evenly;
+}
+
+.t-space.is-wrap {
+  flex-wrap: wrap;
+}
+
+.t-space.is-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.t-space--ss {
+  gap: var(--teal-space-size-ss);
+}
+
+.t-space--m {
+  gap: var(--teal-space-size-m);
+}
+
+.t-space--l {
+  gap: var(--teal-space-size-l);
+}
+
+.t-space--xl {
+  gap: var(--teal-space-size-xl);
+}
+
+.t-space--overflow-auto {
+  overflow: auto;
+}
+.t-space--overflow-hidden {
+  overflow: hidden;
+}
+.t-space--overflow-scroll {
+  overflow: scroll;
+}
+.t-space--overflow-clip {
+  overflow: clip;
+}

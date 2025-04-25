@@ -1,0 +1,11 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("link") {
+  text-decoration: underline;
+  color: unset;
+
+  @include when("disabled") {
+    opacity: 0.56;
+    cursor: not-allowed;
+  }
+}

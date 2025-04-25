@@ -1,0 +1,40 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("divider") {
+  display: inherit;
+  @include e("horizontal") {
+    position: relative;
+    display: block;
+    margin: 24px 0;
+    border-top: 1px solid;
+    border-color: var(--teal-border-color);
+    border-width: 1px;
+  }
+  @include e("title") {
+    position: absolute;
+    display: inline-flex;
+    padding: 0 20px;
+    background-color: var(--teal-bg-color-1);
+  }
+  @include m("left") {
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  @include m("middle") {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @include m("right") {
+    right: 20px;
+    transform: translateY(-50%);
+  }
+  @include e("vertical") {
+    position: relative;
+    display: inline-block;
+    width: 1px;
+    min-height: 1em;
+    vertical-align: middle;
+    margin: 0px 8px;
+    border-color: var(--teal-border-color);
+  }
+}

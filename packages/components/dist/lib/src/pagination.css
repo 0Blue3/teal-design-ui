@@ -1,0 +1,159 @@
+.left-no-border-radius {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.right-no-border-radius {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.disabled, .t-pagination .t-pagination-control.is-disabled, .t-pagination.is-disabled {
+  display: inline-flex;
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+.disabled::before, .t-pagination .t-pagination-control.is-disabled::before, .t-pagination.is-disabled::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.readonly {
+  display: inline-flex;
+}
+.readonly::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.loading {
+  display: inline-flex;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.loading::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.t-pagination {
+  --teal-pagination-item-height-s: 24px;
+  --teal-pagination-item-height-m: 36px;
+  --teal-pagination-item-height-l: 42px;
+  --teal-pagination-item-height: var(--teal-pagination-item-height-m);
+  --teal-pagination-text-size-s: 12px;
+  --teal-pagination-text-size-m: 14px;
+  --teal-pagination-text-size-l: 16px;
+  --teal-pagination-text-size: var(--teal-pagination-text-size-m);
+  --teal-pagination-inline-padding-s: 6px;
+  --teal-pagination-inline-padding-m: 8px;
+  --teal-pagination-inline-padding-l: 10px;
+  --teal-pagination-inline-padding: var(--teal-pagination-inline-padding-m);
+  --teal-pagination-input-number-width-s: 60px;
+  --teal-pagination-input-number-width-m: 80px;
+  --teal-pagination-input-number-width-l: 90px;
+  --teal-pagination-input-number-width-xl: 100px;
+  --teal-pagination-input-number-width: var(
+    --teal-pagination-input-number-width-m
+  );
+}
+
+.t-pagination {
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  gap: var(--teal-pagination-inline-padding);
+}
+.t-pagination .t-pagination-control {
+  padding: 0 var(--teal-pagination-inline-padding);
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--teal-bg-color-3);
+  cursor: pointer;
+  min-width: var(--teal-pagination-item-height);
+  height: var(--teal-pagination-item-height);
+  font-size: var(--teal-pagination-text-size);
+  border-radius: calc(var(--teal-pagination-inline-padding) - 4px);
+  line-height: var(--teal-pagination-item-height);
+}
+.t-pagination .t-pagination-control:hover {
+  background-color: var(--teal-bg-color-4);
+}
+.t-pagination .t-pagination-control.is-disabled {
+  display: block;
+}
+
+.t-pagination .t-pagination-pager {
+  display: flex;
+  align-items: center;
+  gap: var(--teal-pagination-inline-padding);
+}
+.t-pagination .t-pagination-pager__item, .t-pagination .t-pagination-pager__more {
+  padding: 0 var(--teal-pagination-inline-padding);
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--teal-bg-color-3);
+  cursor: pointer;
+  min-width: var(--teal-pagination-item-height);
+  height: var(--teal-pagination-item-height);
+  font-size: var(--teal-pagination-text-size);
+  border-radius: var(--teal-pagination-inline-padding);
+  line-height: var(--teal-pagination-item-height);
+  transition: backgroundColor 0.3s;
+}
+.t-pagination .t-pagination-pager__item:hover, .t-pagination .t-pagination-pager__more:hover {
+  background-color: var(--teal-bg-color-4);
+}
+.t-pagination .t-pagination-pager__item.is-active, .t-pagination .t-pagination-pager__more.is-active {
+  background-color: var(--teal-color-primary);
+  color: var(--teal-bg-color-1);
+}
+
+.t-pagination .t-pagination-pager__more {
+  background-color: transparent;
+}
+.t-pagination .t-pagination-jumper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: inherit;
+}
+.t-pagination .t-pagination-jumper .t-inputNumber {
+  width: var(--teal-pagination-input-number-width);
+}
+.t-pagination .t-inputNumber {
+  width: var(--teal-pagination-input-number-width);
+}
+.t-pagination--s {
+  --teal-pagination-item-height: var(--teal-pagination-item-height-s);
+  --teal-pagination-inline-padding: var(--teal-pagination-inline-padding-s);
+  --teal-pagination-text-size: var(--teal-pagination-text-size-s);
+  --teal-pagination-input-number-width: var(
+    --teal-pagination-input-number-width-s
+  );
+}
+.t-pagination--l {
+  --teal-pagination-item-height: var(--teal-pagination-item-height-l);
+  --teal-pagination-inline-padding: var(--teal-pagination-inline-padding-l);
+  --teal-pagination-text-size: var(--teal-pagination-text-size-l);
+  --teal-pagination-input-number-width: var(
+    --teal-pagination-input-number-width-l
+  );
+}

@@ -1,0 +1,104 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("space") {
+  display: flex;
+  transform: all 0.3s ease-in-out;
+  gap: var(--teal-space-size-s);
+
+  @include when("inline") {
+    display: inline-flex;
+  }
+
+  //   排列方式
+  @include m("dir") {
+    &-horizontal-reverse {
+      flex-direction: row-reverse;
+    }
+    &-vertical {
+      flex-direction: column;
+    }
+    &-vertical-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  // 对齐方式
+  @include m("align") {
+    &-start {
+      align-items: start;
+    }
+    &-center {
+      align-items: center;
+    }
+    &-end {
+      align-items: end;
+    }
+    &-baseline {
+      align-items: baseline;
+    }
+  }
+
+  @include m("justify") {
+    &-start {
+      justify-content: flex-start;
+    }
+
+    &-end {
+      justify-content: flex-end;
+    }
+
+    &-center {
+      justify-content: center;
+    }
+
+    &-around {
+      justify-content: space-around;
+    }
+
+    &-between {
+      justify-content: space-between;
+    }
+
+    &-evenly {
+      justify-content: space-evenly;
+    }
+  }
+
+  // 换行
+  @include when("wrap") {
+    flex-wrap: wrap;
+  }
+  @include when("wrap-reverse") {
+    flex-wrap: wrap-reverse;
+  }
+
+  // gap
+  @include m("ss") {
+    gap: var(--teal-space-size-ss);
+  }
+  @include m("m") {
+    gap: var(--teal-space-size-m);
+  }
+  @include m("l") {
+    gap: var(--teal-space-size-l);
+  }
+  @include m("xl") {
+    gap: var(--teal-space-size-xl);
+  }
+
+  //   溢出
+  @include m("overflow") {
+    &-auto {
+      overflow: auto;
+    }
+    &-hidden {
+      overflow: hidden;
+    }
+    &-scroll {
+      overflow: scroll;
+    }
+    &-clip {
+      overflow: clip;
+    }
+  }
+}

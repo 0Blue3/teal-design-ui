@@ -1,0 +1,35 @@
+{
+    "name": "teal-design-ui",
+    "version": "0.0.61",
+    "type": "module",
+    "description": "teal-design-ui",
+    "author": "0Blue3 https://github.com/0Blue3",
+    "homepage": "https://github.com/0Blue3/teal-design",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com//0Blue3/teal-design",
+        "directory": "teal-design-ui"
+    },
+    "bugs": {
+        "url": "https://github.com//0Blue3/teal-design/issues"
+    },
+    "keywords": [
+        "teal-design-ui",
+        "teal design ui",
+        "teal-design",
+        "teal design"
+    ],
+    "main": "lib/packages/components/index.ts",
+    "module": "es/packages/components/index.ts",
+    "files": [
+        "es",
+        "lib"
+    ],
+    "license": "MIT",
+    "typings": "lib/index.d.ts",
+    "scripts": {
+        "build": "vite build",
+        "release": "standard-version",
+        "test": "vitest --watch=false"
+    }
+}

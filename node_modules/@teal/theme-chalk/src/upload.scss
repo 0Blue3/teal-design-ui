@@ -1,0 +1,271 @@
+@use "mixin/mixins.scss" as *;
+
+@include e("upload") {
+  --teal-upload-picture-border-radius: 5px;
+}
+
+@include b("upload") {
+  width: 100%;
+  @include e("picture") {
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--teal-upload-picture-border-radius);
+    &--circle {
+      border-radius: 50%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &-item {
+      height: 100%;
+      width: 100%;
+      &--circle {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      &__overlay-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        flex-direction: row;
+        &--error {
+          opacity: 0.2;
+        }
+        &--uploading {
+          opacity: 0.2;
+        }
+      }
+      &__icon {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        &.t-icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &__icon-uploading {
+        cursor: pointer;
+        color: #fff;
+        font-size: 30px;
+      }
+      &__icon-fail {
+        color: #fff;
+        .t-icon {
+          font-size: 22px;
+        }
+      }
+      &__hover-icons {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 56px;
+        height: 16px;
+        font-size: var(--teal-font-size-ss);
+        color: #fff;
+        visibility: hidden;
+        flex-direction: row;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &-button {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border: 1px dashed var(--teal-border-color-light);
+      background: var(--teal-bg-color-2);
+      transition: all 0.2s;
+      cursor: pointer;
+      border-radius: var(--teal-upload-picture-border-radius);
+      &--circle {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      &:hover {
+        background-color: var(--teal-bg-color-3);
+      }
+      &.is-disabled {
+        cursor: not-allowed;
+        opacity: 0.56;
+      }
+    }
+    &-desc {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      .t-icon {
+        color: var(--teal-border-color);
+      }
+    }
+
+    &:hover {
+      .t-upload__picture-item {
+        &__overlay-hover {
+          opacity: 0.4;
+        }
+        &__hover-icons {
+          visibility: visible;
+        }
+        &__icon-fail {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+
+  @include e("files") {
+    width: 100%;
+    &-file {
+      font-size: 13px;
+      &-button {
+        margin-right: 16px;
+        color: var(--teal-text-color-regular);
+      }
+    }
+
+    &-draggle {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      height: 200px;
+      flex-direction: column;
+      cursor: pointer;
+      border: 1px dashed var(--teal-border-color);
+      border-radius: 8px;
+      background: var(--teal-bg-color-2);
+      transition: background-color 0.2s;
+      &__icon-upload {
+        margin-top: 48px;
+        width: 48px !important;
+        height: 48px !important;
+        color: var(--teal-color-gray-6) !important;
+        font-size: 40px;
+      }
+      &__methods {
+        margin-top: 16px;
+        line-height: 22px;
+        font-size: 14px;
+        color: var(--teal-color-gray);
+      }
+      &__desc {
+        margin-top: 4px;
+        line-height: 20px;
+        font-size: 14px;
+        color: var(--teal-color-gray-6);
+      }
+      &:hover {
+        background-color: var(--teal-bg-color-3);
+      }
+    }
+    &-list {
+      display: flex;
+      margin-top: var(--teal-space-size-l);
+      width: 100%;
+      flex-direction: column-reverse;
+      &-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: var(--teal-space-size-s);
+        width: 100%;
+        color: var(--teal-color-primary);
+        flex-direction: row;
+        &__main {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 14px;
+          width: 100%;
+          border-radius: var(--teal-border-radius-base);
+          background-color: var(--teal-bg-color-3);
+          flex-direction: row;
+          &:hover {
+            .icon-delete {
+              visibility: visible;
+            }
+          }
+          &-left {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 400;
+            text-overflow: ellipsis;
+            color: var(--teal-color-primary);
+            flex-direction: row;
+            overflow: hidden;
+            padding: 8px 0px;
+            white-space: nowrap;
+
+            .icon-annex {
+              margin-right: 4px;
+            }
+            &-name {
+              &--error,
+              &--pause {
+                color: var(--teal-color-danger);
+              }
+            }
+          }
+
+          &-right {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 14px;
+            color: var(--teal-color-primary);
+            flex-direction: row;
+            .icon-delete {
+              visibility: hidden;
+              margin: 0 5px;
+              color: var(--teal-color-gray-4);
+              cursor: pointer;
+              transition: color 0.2s;
+              &:hover {
+                color: var(--teal-color-gray-5);
+              }
+            }
+            .icon-success {
+              color: var(--teal-color-success);
+              cursor: pointer;
+            }
+            .abort-upload {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: row;
+              cursor: pointer;
+              .uploading-bg {
+                fill: var(--teal-color-primary);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

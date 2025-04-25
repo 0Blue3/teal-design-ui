@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});require("vue");const e=require("../../utils/with-install.js"),t=require("./src/tree.vue.js"),r=e.withInstall(t);exports.default=r;

@@ -1,0 +1,4 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("anchor") {
+}

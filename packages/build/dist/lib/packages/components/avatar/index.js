@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});require("vue");const t=require("../../utils/with-install.js"),e=require("./src/avatar.vue.js"),r=require("./src/avatar-group.vue.js"),u=t.withInstall(e),a=t.withInstall(r);exports.TlAvatarGroup=a;exports.default=u;

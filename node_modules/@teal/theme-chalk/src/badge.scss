@@ -1,0 +1,116 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("badge") {
+  --teal-badge-bg-color: var(--teal-color-danger);
+  .common {
+    background-color: var(--teal-badge-bg-color);
+    color: var(--teal-bg-color-1);
+    box-shadow: var(--teal-bg-color-1) 0 0 0 0;
+  }
+
+  .modal {
+    &-enter {
+      &-from {
+        scale: 0;
+        opacity: 0;
+      }
+
+      &-active {
+        transition: all 0.2s ease-in;
+      }
+
+      &-to {
+        scale: 1;
+        opacity: 1;
+      }
+    }
+
+    &-leave {
+      &-from {
+        scale: 1;
+        opacity: 1;
+      }
+
+      &-active {
+        transition: all 0.2s ease-out;
+      }
+
+      &-to {
+        scale: 0;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@include b("badge") {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  line-height: 1;
+
+  @include e("dot") {
+    @extend .common;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+
+    @include when("inDot") {
+      top: 4px;
+      right: 4px;
+    }
+  }
+
+  @include e("count") {
+    @extend .common;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0 6px;
+    font-size: 12px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 20px;
+
+    @include when("round") {
+      padding: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+    }
+  }
+
+  @include m("stand") {
+    position: static;
+  }
+
+  @include m("primary") {
+    --teal-badge-bg-color: var(--teal-color-primary);
+  }
+  @include m("success") {
+    --teal-badge-bg-color: var(--teal-color-success);
+  }
+  @include m("danger") {
+    --teal-badge-bg-color: var(--teal-color-danger);
+  }
+  @include m("warning") {
+    --teal-badge-bg-color: var(--teal-color-warning);
+  }
+
+  @include m("left") {
+    top: 0;
+    left: 0;
+  }
+  @include m("left") {
+    top: 0;
+    right: 0;
+  }
+}

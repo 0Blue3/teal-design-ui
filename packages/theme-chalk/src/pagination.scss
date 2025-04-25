@@ -1,0 +1,138 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("pagination") {
+  // 24 36 40
+  // height
+  --teal-pagination-item-height-s: 24px;
+  --teal-pagination-item-height-m: 36px;
+  --teal-pagination-item-height-l: 42px;
+  --teal-pagination-item-height: var(--teal-pagination-item-height-m);
+  // font size
+  --teal-pagination-text-size-s: 12px;
+  --teal-pagination-text-size-m: 14px;
+  --teal-pagination-text-size-l: 16px;
+  --teal-pagination-text-size: var(--teal-pagination-text-size-m);
+
+  // padding
+  --teal-pagination-inline-padding-s: 6px;
+  --teal-pagination-inline-padding-m: 8px;
+  --teal-pagination-inline-padding-l: 10px;
+  --teal-pagination-inline-padding: var(--teal-pagination-inline-padding-m);
+
+  // inputNumber width
+  --teal-pagination-input-number-width-s: 60px;
+  --teal-pagination-input-number-width-m: 80px;
+  --teal-pagination-input-number-width-l: 90px;
+  --teal-pagination-input-number-width-xl: 100px;
+  --teal-pagination-input-number-width: var(
+    --teal-pagination-input-number-width-m
+  );
+}
+
+@include b("pagination") {
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  gap: var(--teal-pagination-inline-padding);
+
+  @include b("pagination-control") {
+    padding: 0 var(--teal-pagination-inline-padding);
+    text-align: center;
+    vertical-align: middle;
+    background-color: var(--teal-bg-color-3);
+    cursor: pointer;
+    min-width: var(--teal-pagination-item-height);
+    height: var(--teal-pagination-item-height);
+    font-size: var(--teal-pagination-text-size);
+    border-radius: calc(var(--teal-pagination-inline-padding) - 4px);
+    line-height: var(--teal-pagination-item-height);
+
+    &:hover {
+      background-color: var(--teal-bg-color-4);
+    }
+
+    @include when("disabled") {
+      @extend .disabled;
+      display: block;
+    }
+  }
+
+  @include b("pagination-pager") {
+    display: flex;
+    align-items: center;
+    gap: var(--teal-pagination-inline-padding);
+
+    &__item,
+    &__more {
+      padding: 0 var(--teal-pagination-inline-padding);
+      text-align: center;
+      vertical-align: middle;
+      background-color: var(--teal-bg-color-3);
+      cursor: pointer;
+      min-width: var(--teal-pagination-item-height);
+      height: var(--teal-pagination-item-height);
+      font-size: var(--teal-pagination-text-size);
+      border-radius: var(--teal-pagination-inline-padding);
+      line-height: var(--teal-pagination-item-height);
+      transition: backgroundColor 0.3s;
+
+      &:hover {
+        background-color: var(--teal-bg-color-4);
+      }
+
+      @include when("active") {
+        background-color: var(--teal-color-primary);
+        color: var(--teal-bg-color-1);
+      }
+    }
+
+    &__more {
+      background-color: transparent;
+    }
+  }
+
+  @include b("pagination-jumper") {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: inherit;
+    .t-inputNumber {
+      width: var(--teal-pagination-input-number-width);
+    }
+  }
+
+  .t-inputNumber {
+    width: var(--teal-pagination-input-number-width);
+  }
+
+  &--s {
+    --teal-pagination-item-height: var(--teal-pagination-item-height-s);
+    --teal-pagination-inline-padding: var(--teal-pagination-inline-padding-s);
+    --teal-pagination-text-size: var(--teal-pagination-text-size-s);
+    --teal-pagination-input-number-width: var(
+      --teal-pagination-input-number-width-s
+    );
+  }
+  &--l {
+    --teal-pagination-item-height: var(--teal-pagination-item-height-l);
+    --teal-pagination-inline-padding: var(--teal-pagination-inline-padding-l);
+    --teal-pagination-text-size: var(--teal-pagination-text-size-l);
+    --teal-pagination-input-number-width: var(
+      --teal-pagination-input-number-width-l
+    );
+  }
+
+  @include when("disabled") {
+    @extend .disabled;
+  }
+  //   &--xl {
+  //     --teal-pagination-item-height: var(--teal-pagination-item-height-xl);
+  //     --teal-pagination-inline-padding: var(--teal-pagination-inline-padding-xl);
+  //     --teal-pagination-inline-padding: var(--teal-pagination-inline-padding-xl);
+  //     --teal-pagination-input-number-width: var(
+  //       --teal-pagination-input-number-width-xl
+  //     );
+  //   }
+}

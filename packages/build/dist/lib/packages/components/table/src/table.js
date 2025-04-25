@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t={type:{type:String,default:"default"},align:{type:String,default:"left"},property:String,label:String,formatter:Function},e=Symbol("TableContextKey");exports.TableContextKey=e;exports.defaultTableColumnProps=t;

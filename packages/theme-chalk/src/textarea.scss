@@ -1,0 +1,94 @@
+@use "mixin/mixins.scss" as *;
+
+@include b("textarea") {
+  position: relative;
+  padding: var(--teal-space-size-s) var(--teal-space-size-m);
+  width: 100%;
+  font-size: var(--teal-font-size-s);
+  border: 1px solid transparent;
+  border-radius: var(--teal-border-radius-small);
+  color: var(--teal-text-color-regular);
+  border: 1px solid var(--teal-border-color);
+  transition: background-color 0.2s ease-in-out;
+
+  &__content {
+    position: absolute;
+    padding: var(--teal-space-size-ss) var(--teal-space-size-m);
+    visibility: hidden;
+  }
+
+  &:hover {
+    border: 1px solid var(--teal-color-primary);
+
+    .t-textarea__button {
+      opacity: 1;
+    }
+  }
+  &.is-focus {
+    border: 1px solid var(--teal-color-primary);
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    &:hover {
+      border: 1px solid var(--teal-border-color);
+    }
+    textarea {
+      cursor: not-allowed;
+    }
+  }
+  textarea {
+    width: 100%;
+    min-height: calc(var(--teal-space-size-l) * 2);
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+    outline: none;
+    resize: vertical;
+    line-height: 20px;
+
+    &::placeholder {
+      font-size: var(--teal-font-size-s);
+    }
+  }
+  &__inner {
+    &--autoSize {
+      transition: all 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+    }
+  }
+  &__button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 8px;
+    width: 24px;
+    border: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: transparent;
+    opacity: 0;
+
+    &:hover {
+      .t-icon {
+        background-color: var(--teal-bg-color-3);
+      }
+    }
+    .t-icon {
+      padding: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      color: var(--teal-text-color-secondary);
+      transition: all 0.2s;
+    }
+  }
+
+  &__wordLimit {
+    position: absolute;
+    bottom: 6px;
+    left: 10px;
+    color: var(--teal-text-color-secondary);
+  }
+}

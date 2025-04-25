@@ -1,0 +1,307 @@
+@use "mixin/mixins.scss" as *;
+@use "common/var.scss" as *;
+
+@include b("button") {
+  --teal-button-minWidth: 24px;
+  --teal-button-text-color: #fff;
+  --teal-button-bg-color: var(--teal-color-primary);
+  --teal-button-border-color: var(--teal-button-bg-color);
+
+  @include declare-color(
+    "button",
+    "hover",
+    var(--teal-button-text-color),
+    var(--teal-color-primary-6),
+    var(--teal-button-hover-bg-color)
+  );
+
+  @include declare-color(
+    "button",
+    "active",
+    var(--teal-button-text-color),
+    var(--teal-button-bg-color),
+    var(--teal-button-active-bg-color)
+  );
+
+  @include declare-color(
+    "button",
+    "disabled",
+    var(--teal-button-text-color),
+    var(--teal-color-primary-6),
+    var(--teal-button-disabled-bg-color)
+  );
+
+  //   继承属性
+  --teal-button-border-style: solid;
+  --teal-button-border: 1px var(--teal-button-border-style)
+    var(--teal-button-border-color);
+}
+
+@include b("button") {
+  // 布局
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  // 大小
+  min-width: 36px;
+  line-height: 1;
+  height: 36px;
+  font-size: var(--teal-font-size-m);
+
+  padding: 0px 20px;
+
+  // 文字格式
+  color: var(--teal-button-text-color);
+  font-weight: var(--teal-font-weight-bs);
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  // 边框
+  border: var(--teal-button-border);
+  border-radius: var(--teal-border-radius-base);
+
+  // 留白
+
+  background-color: var(--teal-button-bg-color);
+
+  // 其他
+  box-sizing: border-box;
+  transition: all 0.2s;
+
+  // 默认样式去掉
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -webkit-appearance: none;
+
+  @include when("long") {
+    width: 100%;
+  }
+  // 次要按钮
+  @include m(secondary) {
+    --teal-button-text-color: var(--teal-text-color-primary);
+    --teal-button-bg-color: var(--teal-color-gray-1);
+    --teal-button-border-color: var(--teal-button-bg-color);
+
+    @include declare-color(
+      "button",
+      "hover",
+      var(--teal-button-text-color),
+      var(--teal-color-gray-2),
+      var(--teal-button-hover-bg-color)
+    );
+
+    @include declare-color(
+      "button",
+      "active",
+      var(--teal-button-text-color),
+      var(--teal-color-gray-3),
+      var(--teal-button-active-bg-color)
+    );
+
+    @include declare-color(
+      "button",
+      "disabled",
+      var(--teal-button-text-color),
+      var(--teal-button-bg-color),
+      var(--teal-button-border-color)
+    );
+  }
+
+  // 线条按钮
+  @include m(outline) {
+    --teal-button-text-color: var(--teal-text-color-primary);
+    --teal-button-bg-color: var(--teal-fill-color-blank);
+    --teal-button-border-color: var(--teal-color-gray-2);
+
+    @include declare-color(
+      "button",
+      "hover",
+      var(--teal-button-text-color),
+      var(--teal-color-gray-1),
+      var(--teal-color-gray-2)
+    );
+
+    @include declare-color(
+      "button",
+      "active",
+      var(--teal-button-text-color),
+      var(--teal-color-gray-2),
+      var(--teal-color-gray-3)
+    );
+
+    @include declare-color(
+      "button",
+      "disabled",
+      var(--teal-button-text-color),
+      var(--teal-button-bg-color),
+      var(--teal-button-border-color)
+    );
+  }
+
+  $colors: primary success warning danger info;
+
+  // 不同状态
+  @each $type in $colors {
+    // 默认状态
+    @include m($type) {
+      --teal-button-text-color: #fff;
+      --teal-button-bg-color: var(--teal-color-#{$type});
+      --teal-button-border-color: var(--teal-button-bg-color);
+
+      @include declare-color(
+        "button",
+        "hover",
+        #fff,
+        var(--teal-color-#{$type}-6),
+        var(--teal-button-hover-bg-color)
+      );
+
+      @include declare-color(
+        "button",
+        "active",
+        var(--teal-button-text-color),
+        var(--teal-button-bg-color),
+        var(--teal-button-active-bg-color)
+      );
+
+      @include declare-color(
+        "button",
+        "disabled",
+        var(--teal-button-text-color),
+        var(--teal-color-#{$type}-6),
+        var(--teal-color-#{$type}-6)
+      );
+
+      &.t-button--secondary {
+        --teal-button-text-color: var(--teal-color-#{$type});
+        --teal-button-bg-color: var(--teal-color-#{$type}-2);
+        --teal-button-border-color: var(--teal-button-bg-color);
+
+        @include declare-color(
+          "button",
+          "hover",
+          var(--teal-button-text-color),
+          var(--teal-color-#{$type}-3),
+          var(--teal-button-hover-bg-color)
+        );
+
+        @include declare-color(
+          "button",
+          "active",
+          var(--teal-button-text-color),
+          var(--teal-color-#{$type}-4),
+          var(--teal-button-active-bg-color)
+        );
+
+        @include declare-color(
+          "button",
+          "disabled",
+          var(--teal-button-text-color),
+          var(--teal-button-bg-color),
+          var(--teal-button-border-color)
+        );
+      }
+      &.t-button--outline {
+        --teal-button-text-color: var(--teal-color-#{$type});
+        --teal-button-bg-color: var(--teal-fill-color-blank);
+        --teal-button-border-color: var(--teal-color-#{$type}-3);
+
+        @include declare-color(
+          "button",
+          "hover",
+          var(--teal-button-text-color),
+          var(--teal-color-#{$type}-3),
+          var(--teal-color-#{$type}-4)
+        );
+
+        @include declare-color(
+          "button",
+          "active",
+          var(--teal-button-text-color),
+          var(--teal-color-#{$type}-4),
+          var(--teal-color-#{$type}-5)
+        );
+
+        @include declare-color(
+          "button",
+          "disabled",
+          var(--teal-button-text-color),
+          var(--teal-button-bg-color),
+          var(--teal-button-border-color)
+        );
+      }
+    }
+  }
+
+  &:hover {
+    @include button-variant(
+      var(--teal-button-hover-text-color),
+      var(--teal-button-hover-bg-color),
+      var(--teal-button-hover-border-color)
+    );
+  }
+
+  &:active {
+    @include button-variant(
+      var(--teal-button-active-text-color),
+      var(--teal-button-active-bg-color),
+      var(--teal-button-active-border-color)
+    );
+  }
+
+  &:disabled {
+    @include button-variant(
+      var(--teal-button-disabled-text-color),
+      var(--teal-button-disabled-bg-color),
+      var(--teal-button-disabled-border-color)
+    );
+    cursor: not-allowed;
+  }
+
+  // 不同尺寸
+  @include m(s) {
+    min-width: 24px;
+    height: 24px;
+    font-size: var(--teal-font-size-ss);
+    padding: 0 8px;
+  }
+  @include m(m) {
+    min-width: 32px;
+    height: 32px;
+    font-size: var(--teal-font-size-s);
+    padding: 0 12px;
+  }
+  @include m(l) {
+    min-width: 38px;
+    height: 38px;
+    font-size: var(--teal-font-size-m);
+    padding: 0 18px;
+  }
+
+  // 不同形状
+  @include m("round") {
+    border-radius: var(--teal-border-radius-round);
+  }
+
+  @include m("circle") {
+    border-radius: 50%;
+    padding: 0;
+  }
+  @include m("square") {
+    padding: 0;
+  }
+
+  @include when("lang") {
+    display: block;
+    width: 100%;
+  }
+}
+
+@include b("button") {
+  @include b("icon") {
+    margin: 5px;
+  }
+}

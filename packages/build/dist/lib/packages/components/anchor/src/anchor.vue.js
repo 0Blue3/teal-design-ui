@@ -1,0 +1,1 @@
+"use strict";const e=require("vue"),t=require("../../../utils/create.js"),c=e.defineComponent({__name:"anchor",setup(s){const r=t.createNamespace("anchor");return(n,o)=>(e.openBlock(),e.createElementBlock("div",{class:e.normalizeClass(e.unref(r).b())},[e.renderSlot(n.$slots,"default")],2))}});module.exports=c;

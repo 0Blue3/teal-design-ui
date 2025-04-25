@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});require("vue");const e=require("../../utils/with-install.js"),l=require("./src/collapse.vue.js"),t=require("./src/collapse-group.vue.js"),u=e.withInstall(l),s=e.withInstall(t);exports.TlCollapseGroup=s;exports.default=u;

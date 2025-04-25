@@ -1,0 +1,21 @@
+@use "./mixin/mixins.scss" as *;
+
+@include b("breadcrumb") {
+  @include b("breadcrumbItem") {
+    @include e("separator") {
+      &:last-child {
+        display: none;
+      }
+    }
+
+    @include e("inner") {
+      & a {
+        text-decoration: underline;
+      }
+    }
+
+    @include e("separator") {
+      margin: 0 8px;
+    }
+  }
+}

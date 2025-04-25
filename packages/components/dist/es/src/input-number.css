@@ -1,0 +1,83 @@
+.left-no-border-radius {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.right-no-border-radius {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.disabled {
+  display: inline-flex;
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+.disabled::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.readonly {
+  display: inline-flex;
+}
+.readonly::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.loading {
+  display: inline-flex;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.loading::before {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  content: "";
+}
+
+.t-inputNumber__buttons--number {
+  position: absolute;
+  right: calc(-1 * var(--teal-input-padding-inline) + 2px);
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  padding: 2px 0px;
+  box-sizing: border-box;
+}
+.t-inputNumber__buttons--number .t-button {
+  height: 50%;
+  padding: 0;
+}
+.t-inputNumber__buttons--number .t-button .t-icon {
+  color: var(--teal-text-color-secondary);
+}
+.t-inputNumber__buttons--number .t-button:first-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.t-inputNumber__buttons--number .t-button:last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.t-inputNumber__buttons--number--s .t-icon {
+  font-size: 12px;
+}
+.t-inputNumber__buttons--number--l .t-icon {
+  font-size: 16px;
+}
