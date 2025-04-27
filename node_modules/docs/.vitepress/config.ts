@@ -27,7 +27,7 @@ export default defineConfig({
   },
   themeConfig: {
     siteTitle: "Teal Design",
-    logo: "/img/logo.svg",
+    logo: "/logo.svg",
     nav: [
       { text: "组件", link: "/components/quickstart" },
       { text: "博客", link: "/blog" },
@@ -35,7 +35,7 @@ export default defineConfig({
     ],
     sidebar: sidebar,
     socialLinks: [
-      { icon: "github", link: "https://github.com/0Blue3/teal-design" },
+      { icon: "github", link: "https://github.com/0Blue3/teal-design-ui" },
     ],
   },
 });
