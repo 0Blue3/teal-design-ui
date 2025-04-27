@@ -11,6 +11,10 @@ import sidebar from "./sidebar";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  head: [
+    // 添加图标
+    ["link", { rel: "icon", href: "/logo.svg" }],
+  ],
   title: "Teal Element UI",
   description: "基于Vue的UI组件库",
   srcDir: "src",
